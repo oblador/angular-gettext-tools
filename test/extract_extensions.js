@@ -36,6 +36,22 @@ describe('Extracting files with different extensions', function () {
         assert.deepEqual(catalog.items[0].references, ['test/fixtures/custom.js_extension:2']);
     });
 
+    it('supports custom Dust file extensions', function () {
+        var files = [
+            'test/fixtures/custom.dust_extension'
+        ];
+        var catalog = testExtract(files, {
+            extensions: {
+                dust_extension: 'dust'
+            }
+        });
+
+        assert.equal(catalog.items.length, 2);
+        assert.equal(catalog.items[0].msgid, 'Custom file!');
+        assert.equal(catalog.items[0].msgstr, '');
+        assert.deepEqual(catalog.items[0].references, ['test/fixtures/custom.dust_extension:3']);
+    });
+
     it('supports PHP files', function () {
         var files = [
             'test/fixtures/php.php'
@@ -70,5 +86,17 @@ describe('Extracting files with different extensions', function () {
         assert.equal(catalog.items[0].msgid, 'Bonjour from HelloWorld component.');
         assert.equal(catalog.items[0].msgstr, '');
         assert.deepEqual(catalog.items[0].references, ['test/fixtures/tapestry.tml:2']);
+    });
+
+    it('supports dust files', function () {
+        var files = [
+            'test/fixtures/dust.dust'
+        ];
+        var catalog =  testExtract(files);
+
+        assert.equal(catalog.items.length, 1);
+        assert.equal(catalog.items[0].msgid, 'Hello from Dust.js');
+        assert.equal(catalog.items[0].msgstr, '');
+        assert.deepEqual(catalog.items[0].references, ['test/fixtures/dust.dust:2']);
     });
 });

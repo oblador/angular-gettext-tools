@@ -1,0 +1,2 @@
+{>"master" /}
+<h1>{@translate}Hello from Dust.js{/translate}</h1>

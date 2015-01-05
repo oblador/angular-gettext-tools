@@ -1,0 +1,7 @@
+<html>
+    <body>
+        <h1>{@translate}Custom file!{/translate}</h1>
+        <p>{@translate}This is a test to show support for custom extensions{/translate}</p>
+    </body>
+</html>
+
