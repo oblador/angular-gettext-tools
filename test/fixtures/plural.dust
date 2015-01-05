@@ -1,0 +1,6 @@
+<html>
+    <body>
+        <h1>{birds.length} {@translate plural="Birds" n=birds.length}Bird{/translate}</h1>
+        <p>{@translate n=birds.length plural="You have {birds.length} birds."}You have one bird.{/translate}</p>
+    </body>
+</html>
